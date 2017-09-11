@@ -13,10 +13,10 @@
 </head>
 <body>
 	<style>
-		.k-link, tr {
-             text-align : center;
-         }
-	</style>
+.k-link, tr {
+	text-align: center;
+}
+</style>
 	<script>
 		var goodsGrid;
 		$(document).ready(function() {

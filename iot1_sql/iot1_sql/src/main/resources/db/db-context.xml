@@ -27,7 +27,7 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
-	
+
 	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
 		<constructor-arg ref="dataSourceSpied" />
 		<property name="logFormatter">
@@ -38,10 +38,12 @@
 	</bean>
 
 	<aop:config proxy-target-class="true">
-		<aop:pointcut id="txAdvisePointCut" expression="execution(* com.test..service.*Service.*(..))"/>
-		<aop:advisor id="transactionAdvisor" pointcut-ref="txAdvisePointCut" advice-ref="txAdvice"/>
+		<aop:pointcut id="txAdvisePointCut"
+			expression="execution(* com.test..service.*Service.*(..))" />
+		<aop:advisor id="transactionAdvisor" pointcut-ref="txAdvisePointCut"
+			advice-ref="txAdvice" />
 	</aop:config>
-	
+
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
 			<tx:method name="get*" read-only="true" />
@@ -50,13 +52,14 @@
 			<tx:method name="save*" propagation="REQUIRED" />
 			<tx:method name="*" propagation="REQUIRED" />
 		</tx:attributes>
-	</tx:advice> 
-	
-	<tx:annotation-driven proxy-target-class="true" transaction-manager="txManager"/>
+	</tx:advice>
+
+	<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="txManager" />
 
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 </beans>
