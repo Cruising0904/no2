@@ -18,7 +18,11 @@
 		<if test="viNum!=0">
 			and vinum = #{viNum}
 		</if>
-	</select>	
+	</select>
+	<insert id ="INSERT_VENDOR" parameterType="vendor1">
+	insert into vednor_info(viname, videsc, viaddress,viphone,vicredat,vicretim)
+	values(#{viName},#{viDesc},#{viAddress},#{viPhone},date_format(now(),'%y-%m-%d'),date_format(now(),'%h:%i:%s'))
+	</insert>	
 </mapper>
 
 

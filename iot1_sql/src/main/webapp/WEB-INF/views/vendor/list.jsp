@@ -1,57 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
+<c:url var="readUrl" value="/vendor/list"/>
+<c:url var="createUrl" value="/vendor/create" />
+<c:url var="updateUrl" value="/vendor/update" />
+<c:url var="deleteUrl" value="/vendor/delete" />
 <title>Insert title here</title>
 </head>
-
-
-<body>
-<script>
-function callback(results){
-	alert("DBMS:vendor_info에 해당하는 총 " + results.length + "개의 Database를 불러옵니다.");
-	var result = "";
-	for(var i=0, max=results.length; i<max; i++){
-		var vendor = results[i];
-	//	result+= "," + goods.giNum + goods.giName+ goods.giDesc+ goods.viNum+ goods.giCreadat+ goods.giCretim
-		result+="<tr>";
-		result+="<td class='text-center'>" + vendor.viNum + "</td>";
-		result+="<td class='text-center'>" + vendor.viName + "</td>";
-		result+="<td class='text-center'>" + vendor.viDesc + "</td>";
-		result+="<td class='text-center'>" + vendor.viAddress + "</td>";
-		result+="<td class='text-center'>" + vendor.viPhone + "</td>";
-		result+="<td class='text-center'>" + vendor.viCredat + "</td>";
-		result+="<td class='text-center'>" + vendor.viCretim + "</td>";
-		result+="</tr>";
-		
-	}
-	$("#result_tbody").html(result);
-}
-
-$(document).ready(function(){
-	$("input[type='button']").click(function(){
-		var au = new AjaxUtil("/vendor/list");
-		au.setCallbackSuccess(callback);
-		au.send();
-	})
-})
-</script>
+	</script>
 <br><p/><br><p/><br><p/>
-<form action="${rootPath}/vendor/list" method = "post">
-<center><input  class="btn_global"  type="button" value="보내긔"></center>
-<table id="table" data-height="460"
-         class="table table-bordered table-hover">
-         <thead>
-            <tr>
-               <th data-field="vinum" class="text-center">vinum</th>
-               <th data-field="viname" class="text-center">viname</th>
-               <th data-field="videsc" class="text-center">videsc</th>
-               <th data-field="viaddress" class="text-center">viaddress</th>
-               <th data-field="viphone" class="text-center">viphone</th>
-               <th data-field="vicredat" class="text-center">vicredat</th>
-               <th data-field="vicretim" class="text-center">vicretim</th>
-            </tr>
-         </thead>
-<tbody id="result_tbody">
-</form>
+<kendo:grid title="그리드" name="grid" pageable="true" sortable="true" scrollable="true" height="380">
+<kendo:grid-editable mode="incell"/>
+      <kendo:grid-toolbar>
+      <kendo:grid-toolbarItem name="create" text="생성"/>
+			<kendo:grid-toolbarItem name="save" text="저장"/>
+		</kendo:grid-toolbar>
+		<kendo:grid-columns>
+			<kendo:grid-column title="회사번호" field="viNum" />
+			<kendo:grid-column title="회사이름" field="viName"/>
+			<kendo:grid-column title="회사정보" field="viDesc"/>
+			<kendo:grid-column title="회사주소" field="viAddress"/>
+			<kendo:grid-column title="회사연락처" field="viPhone"/>
+			<kendo:grid-column title="설립시기" field="viCredat"/>
+			<kendo:grid-column title="설립시간" field="viCretim"/>
+            <kendo:grid-column command="destroy" title="삭제" />
+		</kendo:grid-columns>
+            
+		<kendo:dataSource pageSize="20" batch="true">
+			<kendo:dataSource-transport>
+				<kendo:dataSource-transport-read url="${readUrl}" dataType="json" type="POST" 
+				contentType="application/json"/>
+				
+	<!--2.  데이터 보내기를 위한 정의 -->	
+				<kendo:dataSource-transport-create url="${createUrl}" dataType="json" type="POST" 
+				contentType="application/json"/>
+				<kendo:dataSource-transport-update url="${updateUrl}" dataType="json" type="POST" 
+				contentType="application/json"/>
+				<kendo:dataSource-transport-destroy url="${deleteUrl}" dataType="json" type="POST" 
+				contentType="application/json"/>
+				
+				<kendo:dataSource-transport-parameterMap>
+					<script>
+					function parameterMap(options, type){
+						if(type==="read"){
+							return JSON.stringify(options);
+						}else{
+							return JSON.stringify(options.models);
+						}
+					}
+					</script>
+					</kendo:dataSource-transport-parameterMap>
+			</kendo:dataSource-transport>
+		
+		<!--3.  입력할 데이터의 각각의 구분값 -->	
+			<kendo:dataSource-schema>
+				<kendo:dataSource-schema-model id="viNum">
+					<kendo:dataSource-schema-model-fields>
+						<kendo:dataSource-schema-model-field name="viNum" type="number" editable="false"/>
+						<kendo:dataSource-schema-model-field name="viName" type="string">
+							<kendo:dataSource-schema-model-field-validation required="true"/>
+						</kendo:dataSource-schema-model-field>
+						<kendo:dataSource-schema-model-field name="viNum" defaultValue="1" >
+							<kendo:dataSource-schema-model-field-validation required="true" min="1"/>
+						</kendo:dataSource-schema-model-field>
+							<kendo:dataSource-schema-model-field name="viCredat" editable="false" type = "date"/>
+							<kendo:dataSource-schema-model-field name="viCretim" editable="false">
+						</kendo:dataSource-schema-model-field>
+					</kendo:dataSource-schema-model-fields>
+				</kendo:dataSource-schema-model>
+			</kendo:dataSource-schema>
+		</kendo:dataSource>
+</kendo:grid>
 </body>
 </html>

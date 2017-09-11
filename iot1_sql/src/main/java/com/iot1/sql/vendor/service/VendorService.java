@@ -11,4 +11,10 @@ public interface VendorService {
 	public List<VendorInfo> getVendorInfoList(VendorInfo vi);
 	
 	public List<VendorInfo> getVendorInfoCombo();
+	
+	public int InsertVendorInfo(VendorInfo vi);
+	
+	public int DeleteVendorInfo(VendorInfo vi);
+	
+	public int UpdateVendorInfo(VendorInfo vi);
 }

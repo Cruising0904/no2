@@ -6,6 +6,11 @@
 <c:url var="updateUrl" value="/goods/update" />
 <c:url var="deleteUrl" value="/goods/delete" />
 <c:url var="vendorComboUrl" value="/vendor/combo" />
+
+<c:url var="readUrl" value="/vendor/list"/>
+<c:url var="createUrl" value="/vendor/create" />
+<c:url var="updateUrl" value="/vendor/update" />
+<c:url var="deleteUrl" value="/vendor/delete" />
 <title>Insert title here</title>
 </head>
 
@@ -120,7 +125,7 @@ $(document).ready(function(){
 						<kendo:dataSource-schema-model-field name="viNum" defaultValue="1" >
 							<kendo:dataSource-schema-model-field-validation required="true" min="1"/>
 						</kendo:dataSource-schema-model-field>
-							<kendo:dataSource-schema-model-field name="giCredat" editable="false"/> 
+							<kendo:dataSource-schema-model-field name="giCredat" editable="false" type = "date"/>
 							<kendo:dataSource-schema-model-field name="giCretim" editable="false">
 						</kendo:dataSource-schema-model-field>
 					</kendo:dataSource-schema-model-fields>

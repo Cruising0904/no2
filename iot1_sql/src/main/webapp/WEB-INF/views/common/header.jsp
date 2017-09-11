@@ -10,10 +10,10 @@
 <c:set var="pVar" value="1.3.2"/>
 <c:set var="rootPath" value="${pageContext.request.contextPath}"/>
 <c:set var="nowUrl" value="${pageContext.request.requestURI}"/>
-<script src="<c:url value='/resources/js/jquery.min.js' />"></script>
-<script src="<c:url value="/resources/js/jquery-ui-1.9.2.custom.js?version=${pVar}"/>"></script>
+ <script src="<c:url value='/resources/js/jquery.min.js' />"></script>
+<%--<script src="<c:url value="/resources/js/jquery-ui-1.9.2.custom.js?version=${pVar}"/>"></script>
 <script src="<c:url value="/resources/js/jquery.fileupload.js?version=${pVar}"/>"></script>
-<script src="<c:url value="/resources/js/jquery.iframe-transport.js?version=${pVar}"/>"></script>
+<script src="<c:url value="/resources/js/jquery.iframe-transport.js?version=${pVar}"/>"></script> --%>
 <script src="<c:url value="/resources/ui/common.js?version=${pVar}"/>"></script>
 <script src="<c:url value="/resources/ui/btsp3.7.7/js/bootstrap.min.js?version=${pVar}"/>"></script>
 <script src="<c:url value="/resources/ui/btsp3.7.7/js/bootstrap-table.js?version=${pVar}"/>"></script>
@@ -152,10 +152,9 @@ var AjaxUtil = function (url, params, type, dataType){
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/board/board_select.jsp">게시판가기</a></li>
-            <li><a href="/user/user_info.jsp">유저정보가기</a></li>
-            <li><a href="/role/role_select.jsp">권한정보가기</a></li>
-            <li><a href="/user/logout">로그아웃</a></li>
+            <li><a href="/sql/url/vendor:list">회사정보</a></li>
+            <li><a href="/sql/url/goods:list">상품정보</a></li>
+            <li><a href="/sql/url/user:user_list">유저정보</a></li>
           </ul>
           
         </div><!--/.nav-collapse -->
