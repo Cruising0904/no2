@@ -11,7 +11,7 @@ public class DbInfo {
 	private String dbms;
 	private String id;
 	private String pwd;
-	private String prot;
+	private String port;
 	private String driverName;
 
 	public int getDiNum() {
@@ -56,11 +56,11 @@ public class DbInfo {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	public String getProt() {
-		return prot;
+	public String getPort() {
+		return port;
 	}
-	public void setProt(String prot) {
-		this.prot = prot;
+	public void setPort(String port) {
+		this.port = port;
 	}
 	public String getDriverName() {
 		return driverName;
@@ -71,7 +71,7 @@ public class DbInfo {
 	@Override
 	public String toString() {
 		return "DbInfo [diNum=" + diNum + ", uiNum=" + uiNum + ", dbTitle=" + dbTitle + ", dbUrl=" + dbUrl + ", dbms="
-				+ dbms + ", id=" + id + ", pwd=" + pwd + ", prot=" + prot + ", driverName=" + driverName + "]";
+				+ dbms + ", id=" + id + ", pwd=" + pwd + ", port=" + port + ", driverName=" + driverName + "]";
 	}
 	
 	

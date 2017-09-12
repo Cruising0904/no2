@@ -4,8 +4,9 @@
 <title>IOT SQL</title>
 </head>
 <script>
+var treeview;
 function onBound(){
-	
+	treeview = $("#treeview").data("kendoTreeView");
 }
 
 function toolbarEvent(){
