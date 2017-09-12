@@ -3,16 +3,16 @@
 
 <mapper namespace="db">
 <select id="SELECT_DB" parameterType = "db" resultType="db">
-	select dinum, dbtitle, dburl, dbms, id, pwd, port
+	select diNum,uiNum, dbTitle, dbUrl, dbMs, id, pWd, port, driverName
 		from db_info
 		where 1=1
 		<if test="diNum!=0">
-			and dinum = #{diNum}
+			and diNum = #{diNum}
 		</if>
-		order by dinum desc
+		order by diNum desc
 	</select>
 	<select id="TABLE_SELECT" parameterType="dataBase"  resultType="table">
-		SELECT table_name as tablename FROM INFORMATION_SCHEMA.TABLES
+		SELECT table_name as tableName FROM INFORMATION_SCHEMA.TABLES
         where table_schema=#{database}
        <if test="tableName != null">
        		and table_name = #{table_name}
@@ -22,7 +22,7 @@
 	<select id="TABLE_INFO_SELECT" parameterType="Map"  resultType="Map">
 		select  column_name, data_type, character_maximum_length,is_nullable
 		 from INFORMATION_SCHEMA.columns 
-		where table_name=#{dbname}
+		where table_name=#{dbName}
 		and table_schema=database()
 		 order by ordinal_position;
 	</select>

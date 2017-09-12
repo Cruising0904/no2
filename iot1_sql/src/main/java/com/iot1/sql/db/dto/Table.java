@@ -5,19 +5,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class Table {
 
-	private String tablename;
+	private String tableName;
 
-	public String getTablename() {
-		return tablename;
+	public String gettableName() {
+		return tableName;
 	}
 
-	public void setTablename(String tablename) {
-		this.tablename = tablename;
+	public void settableName(String tableName) {
+		this.tableName = tableName;
 	}
 
 	@Override
 	public String toString() {
-		return "Table [tablename=" + tablename + "]";
+		return "Table [tableName=" + tableName + "]";
 	}
 
 	
