@@ -4,14 +4,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Table {
-
 	private String tableName;
 
-	public String gettableName() {
+	public String getTableName() {
 		return tableName;
 	}
 
-	public void settableName(String tableName) {
+	public void setTableName(String tableName) {
 		this.tableName = tableName;
 	}
 
@@ -19,7 +18,5 @@ public class Table {
 	public String toString() {
 		return "Table [tableName=" + tableName + "]";
 	}
-
-	
 	
 }

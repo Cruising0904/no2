@@ -43,7 +43,7 @@ public class DataSourceFactory{
 	}
 
 
-	public boolean isConnectDB(DbInfo db) throws Exception {
+	public boolean isConnecteDB(DbInfo db) throws Exception {
 		setDataSource(db);
 		ss = getSession();
 		return true;
