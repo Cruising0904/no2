@@ -35,11 +35,12 @@ public class GoodsInfo {
 	public void setViNum(int viNum) {
 		this.viNum = viNum;
 	}
-	public String getgicredat() {
+	
+	public String getGiCredat() {
 		return giCredat;
 	}
-	public void setgicredat(String gicredat) {
-		this.giCredat = gicredat;
+	public void setGiCredat(String giCredat) {
+		this.giCredat = giCredat;
 	}
 	public String getGiCretim() {
 		return giCretim;

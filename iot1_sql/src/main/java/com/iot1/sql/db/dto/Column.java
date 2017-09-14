@@ -7,7 +7,7 @@ public class Column {
 	
 	private String columnName;
 	private String dataType;
-	private String charactermaximuLength;
+	private String characterMaximumLength;
 	private String isNullable;
 	public String getColumnName() {
 		return columnName;
@@ -21,11 +21,11 @@ public class Column {
 	public void setDataType(String dataType) {
 		this.dataType = dataType;
 	}
-	public String getCharactermaximuLength() {
-		return charactermaximuLength;
+	public String getCharacterMaximumLength() {
+		return characterMaximumLength;
 	}
-	public void setCharactermaximuLength(String charactermaximuLength) {
-		this.charactermaximuLength = charactermaximuLength;
+	public void setCharacterMaximumLength(String characterMaximumLength) {
+		this.characterMaximumLength = characterMaximumLength;
 	}
 	public String getIsNullable() {
 		return isNullable;
@@ -35,8 +35,8 @@ public class Column {
 	}
 	@Override
 	public String toString() {
-		return "Column [columnName=" + columnName + ", dataType=" + dataType + ", charactermaximuLength="
-				+ charactermaximuLength + ", isNullable=" + isNullable + "]";
+		return "Column [columnName=" + columnName + ", dataType=" + dataType + ", characterMaximumLength="
+				+ characterMaximumLength + ", isNullable=" + isNullable + "]";
 	}
 	
 

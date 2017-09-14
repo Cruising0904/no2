@@ -11,6 +11,7 @@
 		select viNum,
 		viName,
 		viDesc,
+		viAddress,
 		viPhone,
 		viCredat,
 		viCretim

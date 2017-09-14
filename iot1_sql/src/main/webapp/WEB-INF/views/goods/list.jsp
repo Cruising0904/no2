@@ -147,7 +147,7 @@ $(document).ready(function(){
 								min="1" />
 						</kendo:dataSource-schema-model-field>
 						<kendo:dataSource-schema-model-field name="viCredat"
-							editable="false" type="date" />
+							editable="true"  />
 						<kendo:dataSource-schema-model-field name="viCretim"
 							editable="false">
 						</kendo:dataSource-schema-model-field>
@@ -171,8 +171,7 @@ $(document).ready(function(){
 			<kendo:grid-column title="회사번호" field="viNum">
 				<kendo:grid-column-values value="${vendors}" />
 			</kendo:grid-column>
-			<kendo:grid-column title="생산일자" field="giCredat"
-				format="{0:yyyy-MM-dd}" />
+			<kendo:grid-column title="생산일자" field="giCredat" format="{0:yyyy-MM-dd}"/>
 			<kendo:grid-column title="생산시간" field="giCretim" />
 			<kendo:grid-column command="destroy" title="삭제" />
 		</kendo:grid-columns>
@@ -216,8 +215,8 @@ $(document).ready(function(){
 							<kendo:dataSource-schema-model-field-validation required="true"
 								min="1" />
 						</kendo:dataSource-schema-model-field>
-						<kendo:dataSource-schema-model-field name="giCredat"
-							editable="false" type="date" />
+						<kendo:dataSource-schema-model-field name="giCredat" type="date"
+							editable="true"/>
 						<kendo:dataSource-schema-model-field name="giCretim"
 							editable="false">
 						</kendo:dataSource-schema-model-field>

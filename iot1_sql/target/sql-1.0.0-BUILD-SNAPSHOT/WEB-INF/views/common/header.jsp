@@ -3,13 +3,15 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@ include file="/WEB-INF/views/common/common.jsp" %>
+<%@ include file="/WEB-INF/views/common/top_menu.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="<c:url value='/resources/js/jquery.min.js' />"></script>
-<script src="<c:url value="/resources/js/jquery-ui-1.9.2.custom.js?version=${pVar}"/>"></script>
-<script src="<c:url value="/resources/js/jquery.fileupload.js?version=${pVar}"/>"></script>
-<script src="<c:url value="/resources/js/jquery.iframe-transport.js?version=${pVar}"/>"></script>
+<%-- <script src="<c:url value="/resources/js/jquery-ui-1.9.2.custom.js?version=${pVar}"/>"></script> --%>
+<%-- <script src="<c:url value="/resources/js/jquery.fileupload.js?version=${pVar}"/>"></script> --%>
+<%-- <script src="<c:url value="/resources/js/jquery.iframe-transport.js?version=${pVar}"/>"></script> --%>
 <script src="<c:url value="/resources/ui/common.js?version=${pVar}"/>"></script>
 <script src="<c:url value="/resources/ui/btsp3.7.7/js/bootstrap.min.js?version=${pVar}"/>"></script>
 <script src="<c:url value="/resources/ui/btsp3.7.7/js/bootstrap-table.js?version=${pVar}"/>"></script>
@@ -30,6 +32,7 @@
 <link href="<c:url value='/resources/css/dataviz/kendo.dataviz.default.min.css'/>" rel="stylesheet" />
 <link href="<c:url value='/resources/shared/styles/examples-offline.css'/>" rel="stylesheet"/>
 <script>
+
 $(document).ready(function(){
 	var nowUrl = "${nowUrl}";
 	var obj = $("a[href='" + nowUrl + "']").parent().attr("class","active");
@@ -51,6 +54,9 @@ var KendoItem = function(obj, grid,url, keyStr){
 		        xhr.setRequestHeader("Content-Type", "application/json");
 		    },
 		    success : function(result){
+		    	if(result.key){
+		    		result = result[result.key];
+		    	}
 		    	options.success(result);
 			},
 			error : function(xhr){

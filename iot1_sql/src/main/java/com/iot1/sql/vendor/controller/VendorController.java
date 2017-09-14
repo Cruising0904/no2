@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.iot1.sql.goods.dto.GoodsInfo;
 import com.iot1.sql.vendor.dto.VendorInfo;
 import com.iot1.sql.vendor.service.VendorService;
 
@@ -49,4 +50,10 @@ public class VendorController {
 		}
 		return null;
 	}
-}
+	@RequestMapping(value="/vendor/updateone",method=RequestMethod.POST)
+	public @ResponseBody List<VendorInfo> vendorUpdateOne(@RequestBody VendorInfo vendorList){
+		vs.UpdateVendorInfo(vendorList);
+		return vs.getVendorInfoList(null);
+		}
+	
+	}

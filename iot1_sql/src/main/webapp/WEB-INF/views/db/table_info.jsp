@@ -60,7 +60,7 @@
 						<kendo:dataSource-schema-model-field name="viNum" defaultValue="1" >
 							<kendo:dataSource-schema-model-field-validation required="true" min="1"/>
 						</kendo:dataSource-schema-model-field>
-						<kendo:dataSource-schema-model-field name="giCredat" editable="true" type="date" >
+						<kendo:dataSource-schema-model-field name="giCredat" editable="false" >
 						</kendo:dataSource-schema-model-field>
 						<kendo:dataSource-schema-model-field name="giCretim" editable="false">
 						</kendo:dataSource-schema-model-field>
